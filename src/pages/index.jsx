@@ -25,3 +25,16 @@ document.querySelector('.nav-btn').addEventListener('click', (e) => {
   e.preventDefault();
   document.querySelector('.rollout-nav').classList.toggle('nav-closed');
 });
+
+
+/*document.querySelector('.nav-btn').addEventListener('click', ()=> {
+  if (document.querySelector('.rollout-nav').classList.contains('nav-closed')) {
+  document.querySelector('.rollout-nav').classList.remove('nav-closed');
+  }
+  else {
+    document.querySelector('.rollout-nav').classList.add('nav-closed');
+  }
+})
+*/
+
+
