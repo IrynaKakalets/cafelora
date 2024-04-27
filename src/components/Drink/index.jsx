@@ -1,28 +1,26 @@
 import { Layer } from '../Layer';
 import './index.css';
 
-export const Drink = ({ name, imageUrl }) => {
+export const Drink = ({ name, imageUrl, layers, ordered, id }) => {
   return (
     <div className="drink">
       <div className="drink__product">
         <div className="drink__cup">
-          <img src={imageUrl} />
+        <img src={`http://localhost:4000${imageUrl}`} />
         </div>
         <div className="drink__info">
           <h3>{name}</h3>
-          <div className="layer">
-            <div
-              className="layer__color"
-              style={{ backgroundColor: '#613916' }}
-            ></div>
-            <div className="layer__label">espresso</div>
-            <Layer color="#feeeca" label="mléčná pěna" />
+          {layers.map((l) => (
+            <Layer color={l.color} label={l.label} key={l.label} />))}
           </div>
         </div>
-      </div>
       <form className="drink__controls">
-        <input type="hidden" className="order-id" value="0" />
-        <button className="order-btn">Objednat</button>
+         <input type="hidden" className="order-id" value={id} />
+        <button
+          className={ordered ? 'order-btn order-btn--ordered' : 'order-btn'}
+        >
+          {ordered ? 'Zrušit' : 'Objednat'}
+        </button>
       </form>
     </div>
   );
